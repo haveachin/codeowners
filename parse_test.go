@@ -39,6 +39,22 @@ func TestParseRule(t *testing.T) {
 			},
 		},
 		{
+			name: "email owners with localhost",
+			rule: "file.txt foo@localhost",
+			expected: Rule{
+				pattern: mustBuildPattern(t, "file.txt"),
+				Owners:  []Owner{{Value: "foo@localhost", Type: "email"}},
+			},
+		},
+		{
+			name: "email owners with long tdl",
+			rule: "file.txt foo@mail.localhost",
+			expected: Rule{
+				pattern: mustBuildPattern(t, "file.txt"),
+				Owners:  []Owner{{Value: "foo@mail.localhost", Type: "email"}},
+			},
+		},
+		{
 			name: "multiple owners",
 			rule: "file.txt @user @org/team foo@example.com",
 			expected: Rule{
