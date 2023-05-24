@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hmarr/codeowners"
+	"github.com/haveachin/codeowners"
 	flag "github.com/spf13/pflag"
 )
 
